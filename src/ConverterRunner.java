@@ -33,26 +33,26 @@ class ConverterRunner {
                 System.out.print("\nGreat, now pick a number in base " + base + ": ");
                 choice = s.nextLine();
                 number = Integer.parseInt(choice);
-                numberConverter = new NumberConverter(base, number);
+                numberConverter = new NumberConverter(number, base);
             }
             if (base == 2) {
-                System.out.println("Base 8: " + numberConverter.arrayToNum(numberConverter.convertToOctal()));
+                System.out.println("Base 8: " + numberConverter.arrayToStr2(numberConverter.convertToOctal()));
                 System.out.println("Base 10: " + numberConverter.arrayToNum(numberConverter.convertToDecimal()));
                 System.out.println("Base 16: " + numberConverter.arrayToStr(numberConverter.convertToHex()));
             }
             else if (base == 8) {
-                System.out.println("Base 2: " + numberConverter.arrayToNum(numberConverter.convertToBinary()));
+                System.out.println("Base 2: " + numberConverter.arrayToStr2(numberConverter.convertToBinary()));
                 System.out.println("Base 10: " + numberConverter.arrayToNum(numberConverter.convertToDecimal()));
                 System.out.println("Base 16: " + numberConverter.arrayToStr(numberConverter.convertToHex()));
             }
             else if (base == 10) {
-                System.out.println("Base 2: " + numberConverter.arrayToNum(numberConverter.convertToBinary()));
-                System.out.println("Base 8: " + numberConverter.arrayToNum(numberConverter.convertToOctal()));
+                System.out.println("Base 2: " + numberConverter.arrayToStr2(numberConverter.convertToBinary()));
+                System.out.println("Base 8: " + numberConverter.arrayToStr2(numberConverter.convertToOctal()));
                 System.out.println("Base 16: " + numberConverter.arrayToStr(numberConverter.convertToHex()));
             }
             else if (base == 16) {
-                System.out.println("Base 2: " + numberConverter.arrayToNum(numberConverter.convertToBinary()));
-                System.out.println("Base 8: " + numberConverter.arrayToNum(numberConverter.convertToOctal()));
+                System.out.println("Base 2: " + numberConverter.arrayToStr2(numberConverter.convertToBinary()));
+                System.out.println("Base 8: " + numberConverter.arrayToStr2(numberConverter.convertToOctal()));
                 System.out.println("Base 10: " + numberConverter.arrayToNum(numberConverter.convertToDecimal()));
             }
             else {
@@ -80,4 +80,3 @@ class ConverterRunner {
         }
     }
 }
-

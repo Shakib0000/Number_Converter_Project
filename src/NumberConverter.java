@@ -64,6 +64,14 @@ public class NumberConverter {
         return str;
     }
 
+    public String arrayToStr2(int[] numArray) {
+        String str = "";
+        for (int num : numArray) {
+            str += String.valueOf(num);
+        }
+        return str;
+    }
+
     public String reverseStr(String str) {
         String newStr = "";
         for (int i = str.length(); i > 0; i--) {
@@ -157,4 +165,3 @@ public class NumberConverter {
     }
 
 }
-
