@@ -171,15 +171,25 @@ public class NumberConverter {
     }
 
     public String[] convertFrom1To64(int base){
-        int decimalConversion = arrayToNum(convertToDecimal());
-        String num = "";
-        int remainder = 0;
-        while (decimalConversion != 0){
-            remainder = decimalConversion % base;
-            num += acceptedNumberInputs[remainder];
-            decimalConversion /= base;
+        String strArray[];
+        if (base != 1) {
+            int decimalConversion = arrayToNum(convertToDecimal());
+            String num = "";
+            int remainder = 0;
+            while (decimalConversion != 0) {
+                remainder = decimalConversion % base;
+                num += acceptedNumberInputs[remainder];
+                decimalConversion /= base;
+            }
+            strArray = reverseStr(num).split("");
         }
-        String[] strArray = reverseStr(num).split("");
+        else {
+            int decimalConversion = arrayToNum(convertToDecimal());
+            strArray = new String[decimalConversion];
+            for (int i = 0; i < strArray.length; i++) {
+                strArray[i] = "1";
+            }
+        }
         return strArray;
     }
 

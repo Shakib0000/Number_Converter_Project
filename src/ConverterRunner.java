@@ -34,22 +34,22 @@ class ConverterRunner {
                 numberConverter = new NumberConverter(choice, base);
             }
             if (base == 2) {
-                System.out.println("Base 8: " + numberConverter.arrayToStr2(numberConverter.convertToOctal()));
+                System.out.println("\nBase 8: " + numberConverter.arrayToStr2(numberConverter.convertToOctal()));
                 System.out.println("Base 10: " + numberConverter.arrayToNum(numberConverter.convertToDecimal()));
                 System.out.println("Base 16: " + numberConverter.arrayToStr(numberConverter.convertToHex()));
             }
             else if (base == 8) {
-                System.out.println("Base 2: " + numberConverter.arrayToStr2(numberConverter.convertToBinary()));
+                System.out.println("\nBase 2: " + numberConverter.arrayToStr2(numberConverter.convertToBinary()));
                 System.out.println("Base 10: " + numberConverter.arrayToNum(numberConverter.convertToDecimal()));
                 System.out.println("Base 16: " + numberConverter.arrayToStr(numberConverter.convertToHex()));
             }
             else if (base == 10) {
-                System.out.println("Base 2: " + numberConverter.arrayToStr2(numberConverter.convertToBinary()));
+                System.out.println("\nBase 2: " + numberConverter.arrayToStr2(numberConverter.convertToBinary()));
                 System.out.println("Base 8: " + numberConverter.arrayToStr2(numberConverter.convertToOctal()));
                 System.out.println("Base 16: " + numberConverter.arrayToStr(numberConverter.convertToHex()));
             }
             else if (base == 16) {
-                System.out.println("Base 2: " + numberConverter.arrayToStr2(numberConverter.convertToBinary()));
+                System.out.println("\nBase 2: " + numberConverter.arrayToStr2(numberConverter.convertToBinary()));
                 System.out.println("Base 8: " + numberConverter.arrayToStr2(numberConverter.convertToOctal()));
                 System.out.println("Base 10: " + numberConverter.arrayToNum(numberConverter.convertToDecimal()));
             }
@@ -65,14 +65,14 @@ class ConverterRunner {
 
             System.out.print("\nGreat, now pick a number in base 10: ");
             String numberString = s.nextLine();
-            NumberConverter numberConverter = new NumberConverter(choice, 10);
+            NumberConverter numberConverter = new NumberConverter(numberString, 10);
             while (base < 1 || base > 64) {
                 System.out.print("\nSeems like the base you entered was invalid, enter a base from 1-64: ");
                 choice = s.nextLine();
                 base = Integer.parseInt(choice);
                 numberConverter = new NumberConverter(numberString, base);
             }
-            System.out.println("Base " + base + ": " + numberConverter.arrayToStr(numberConverter.convertFrom1To64(base)));
+            System.out.println("\nBase " + base + ": " + numberConverter.arrayToStr(numberConverter.convertFrom1To64(base)));
         }
     }
 }
