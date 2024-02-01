@@ -22,9 +22,8 @@ class ConverterRunner {
 
             System.out.print("\nGreat, now pick a number in base " + base + ": ");
             choice = s.nextLine();
-            int number = Integer.parseInt(choice);
 
-            NumberConverter numberConverter = new NumberConverter(number, base);
+            NumberConverter numberConverter = new NumberConverter(choice, base);
             while (!numberConverter.validBase() || !numberConverter.validNumber()) {
                 System.out.print("\nSeems like either the base or number you inputted was invalid. Try again.\nYou can choose the bases 2, 8, 10, or 16. Which do you choose: ");
                 choice = s.nextLine();
@@ -32,8 +31,7 @@ class ConverterRunner {
 
                 System.out.print("\nGreat, now pick a number in base " + base + ": ");
                 choice = s.nextLine();
-                number = Integer.parseInt(choice);
-                numberConverter = new NumberConverter(number, base);
+                numberConverter = new NumberConverter(choice, base);
             }
             if (base == 2) {
                 System.out.println("Base 8: " + numberConverter.arrayToStr2(numberConverter.convertToOctal()));
@@ -66,15 +64,13 @@ class ConverterRunner {
             int base = Integer.parseInt(choice);
 
             System.out.print("\nGreat, now pick a number in base 10: ");
-            choice = s.nextLine();
-            int number = Integer.parseInt(choice);
-
-            NumberConverter numberConverter = new NumberConverter(number, 10);
+            String numberString = s.nextLine();
+            NumberConverter numberConverter = new NumberConverter(choice, 10);
             while (base < 1 || base > 64) {
                 System.out.print("\nSeems like the base you entered was invalid, enter a base from 1-64: ");
                 choice = s.nextLine();
                 base = Integer.parseInt(choice);
-                numberConverter = new NumberConverter(base, number);
+                numberConverter = new NumberConverter(numberString, base);
             }
             System.out.println("Base " + base + ": " + numberConverter.arrayToStr(numberConverter.convertFrom1To64(base)));
         }

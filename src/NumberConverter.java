@@ -1,18 +1,21 @@
+import java.util.Arrays;
+
 public class NumberConverter {
     int[] digits;
     int base;
     String[] acceptedNumberInputs;
 
-    public NumberConverter(int number, int base) {
-        String numberAsString = Integer.toString(number);
+    public NumberConverter(String numberAsString, int base) {
+        acceptedNumberInputs = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "+", "/"};
         digits = new int[numberAsString.length()];
         for (int i = 0; i < numberAsString.length(); i++) {
-            String single = numberAsString.substring(i,i+1);
-            int d = Integer.parseInt(single);
-            digits[i] = d;
+            for (int j = 0; j < acceptedNumberInputs.length; j++) {
+                if (acceptedNumberInputs[j].equals(numberAsString.substring(i,i+1))) {
+                    digits[i] = j;
+                }
+            }
         }
         this.base = base;
-        acceptedNumberInputs = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "+", "/"};
     }
 
     public boolean validBase(){
@@ -23,6 +26,13 @@ public class NumberConverter {
         String[] validNumbers = new String[base];
         for (int i = 0; i < validNumbers.length; i++) {
             validNumbers[i] = acceptedNumberInputs[i];
+        }
+        for (int i = 0; i < validNumbers.length; i++) {
+            for (int j = 0; j < acceptedNumberInputs.length; j++) {
+                if (acceptedNumberInputs[j].equals(validNumbers[i])) {
+                    validNumbers[i] = String.valueOf(j);
+                }
+            }
         }
         for (int digit : digits) {
             boolean isValidNumber = false;
@@ -46,6 +56,15 @@ public class NumberConverter {
             numArray[i] = d;
         }
         return numArray;
+    }
+
+    public String[] strToArray(String numberAsString){
+        String[] strArray = new String[numberAsString.length()];
+        for (int i = 0; i < numberAsString.length(); i++) {
+            String digit = numberAsString.substring(i,i+1);
+            strArray[i] = digit;
+        }
+        return strArray;
     }
 
     public int arrayToNum(int[] numArray) {
